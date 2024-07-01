@@ -10,4 +10,6 @@ function plus(a,b) {
 }
 const result = plus(1,2);
 
-console.log(i,j,k,result);
+const multip = (a,b) => {return a*b}
+
+console.log(i,j,k,plus(1,2),multip(2,2));
