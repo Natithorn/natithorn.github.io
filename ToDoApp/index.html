@@ -15,6 +15,9 @@
     <script>
       function addtodo() {
         const inputValue = document.getElementById("input").value;
+        if(inputValue == "") {
+          return
+        }
         //create new element <li>
         let newElement = document.createElement("li"); //<li></li>
         newElement.classList.add("list-group-item"); //<li class="list-group-item"></li>
