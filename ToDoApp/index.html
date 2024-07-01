@@ -18,11 +18,33 @@
         //create new element <li>
         let newElement = document.createElement("li"); //<li></li>
         newElement.classList.add("list-group-item"); //<li class="list-group-item"></li>
-        let newTxtElement = document.createTextNode(inputValue); //create Text
-        newElement.appendChild(newTxtElement); //<li>Text</li>
+
+        let divElement = document.createElement("div");
+        divElement.classList.add("d-flex")
+        divElement.classList.add("justify-content-between")
+        
+        let newTxtElement = document.createElement('p') //create Text
+        newTxtElement.textContent = inputValue;
+
+        const removeButton = document.createElement("button");
+        removeButton.classList.add("btn","btn-danger");
+        removeButton.textContent = "Remove"
+        removeButton.onclick = function() {
+            deletetodo(this);
+        }
+        
+        divElement.appendChild(newTxtElement);
+        divElement.appendChild(removeButton);
+
+
+        newElement.appendChild(divElement);
 
         let listElement = document.getElementById("listtodo");
         listElement.appendChild(newElement);
+      }
+      function deletetodo(removeButton) {
+        removeButton.parentElement.remove();
+        
       }
     </script>
     <div class="container">
