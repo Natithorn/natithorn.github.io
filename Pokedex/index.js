@@ -1,26 +1,50 @@
-fetch("https://pokeapi.co/api/v2/pokemon?limit=50&offset=0")
-    .then((res) => res.json())
-    .then((data) => {
-        console.log(data.results)
-        const datas = data["results"];
-        const ele = document.getElementById("name");
-        let count = 1;
-        datas.forEach((element) => {
-            const name = element["name"];
-            ele.innerHTML +=
-                "<div class='col col-3'>" +
-                "<div class='card'>" +
-                "<img class='card-img-top' src='https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/" + count + ".png'>" +
-                "<div class='card-body'>" +
-                "<a href='detail/index.html?name=" +
-                name +
-                "'>" +
-                name +
-                "</a></div></div></div>";
-            count++;
+let offset = 0;
+const limit = 40;
+
+const fetchData = async () => {
+    try {
+        const urlParams = new URLSearchParams(window.location.search);
+        const typeName = urlParams.get("type");
+        const abilityName = urlParams.get("ability");
+
+        let apiUrl;
+        if (typeName) {
+            apiUrl = `https://pokeapi.co/api/v2/type/${typeName}?limit=${limit}&offset=${offset}`;
+        } else if (abilityName) {
+            apiUrl = `https://pokeapi.co/api/v2/ability/${abilityName}?limit=${limit}&offset=${offset}`;
+        } else {
+            apiUrl = `https://pokeapi.co/api/v2/pokemon?limit=${limit}&offset=${offset}`;
+        }
+
+        const response = await fetch(apiUrl);
+        if (!response.ok) {
+            throw new Error('Network response was not ok.');
+        }
+        const data = await response.json();
+        const pokemons = typeName || abilityName ? data.pokemon : data.results;
+        const pokemonContainer = document.getElementById('pokemon-container');
+
+        pokemons.forEach((entry, index) => {
+            const pokemon = entry.pokemon || entry;
+            const card = `
+                <div class="col col-3">
+                    <div class="card">
+                        <img class="card-img-top" src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${pokemon.url.split("/")[6]}.png">
+                        <div class="card-body">
+                            <h5 class="card-title">${pokemon.name}</h5>
+                            <a href="detail/index.html?name=${pokemon.name}" class="btn btn-details">ข้อมูล</a>
+                        </div>
+                    </div>
+                </div>`;
+            pokemonContainer.innerHTML += card;
         });
-    })
-    .catch((err) => console.error(err));
 
+        offset += limit;
 
+    } catch (error) {
+        console.error('Error fetching data:', error);
+    }
+};
 
+document.addEventListener('DOMContentLoaded', fetchData);
+document.getElementById('load-more').addEventListener('click', fetchData);

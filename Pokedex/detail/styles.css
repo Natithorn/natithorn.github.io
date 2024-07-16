@@ -1,0 +1,50 @@
+body {
+    background-color: #f8f9fa;
+}
+
+#pokemon-image {
+    width: 100%; 
+    height: auto;
+    display: block; 
+    margin: 0 auto; 
+}
+
+
+#pokemon-types .badge {
+    background-color: orange;
+    border-color: darkorange; 
+    color: #fff; 
+    margin-right: 5px;
+    margin-bottom: 5px;
+    font-size: 1.3rem;
+    cursor: pointer;
+}
+
+#pokemon-stats p {
+    margin-bottom: 5px;
+}
+
+#pokemon-abilities .badge {
+    background-color: red;
+    color: #fff;
+    margin-right: 5px;
+    margin-bottom: 5px;
+    font-size: 1.3rem;
+    cursor: pointer;
+}
+
+
+
+.btn-back {
+    background-color: #000; 
+    color: #fff; 
+    border-color: #000;  
+}
+
+
+.btn-back:focus,
+.btn-back:active {
+    background-color: rgb(220, 45, 45);
+    color: #fff;
+    border-color: rgb(208, 48, 48);
+}
