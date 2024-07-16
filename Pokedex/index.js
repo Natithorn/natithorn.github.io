@@ -26,17 +26,20 @@ const fetchData = async () => {
 
         pokemons.forEach((entry, index) => {
             const pokemon = entry.pokemon || entry;
-            const card = `
-                <div class="col col-3">
-                    <div class="card">
-                        <img class="card-img-top" src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${pokemon.url.split("/")[6]}.png">
-                        <div class="card-body">
-                            <h5 class="card-title">${pokemon.name}</h5>
-                            <a href="detail/index.html?name=${pokemon.name}" class="btn btn-details">ข้อมูล</a>
-                        </div>
+            const card = document.createElement('div');
+            card.classList.add('col', 'col-3');
+        
+            card.innerHTML = `
+                <div class="card">
+                    <img class="card-img-top" src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${pokemon.url.split("/")[6]}.png">
+                    <div class="card-body">
+                        <h5 class="card-title">${pokemon.name}</h5>
+                        <a href="detail/index.html?name=${pokemon.name}" class="btn btn-details">ข้อมูล</a>
                     </div>
-                </div>`;
-            pokemonContainer.innerHTML += card;
+                </div>
+            `;
+            
+            pokemonContainer.appendChild(card);
         });
 
         offset += limit;
