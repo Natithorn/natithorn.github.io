@@ -1,5 +1,6 @@
-let offset = 0;
+const offset = 0;
 const limit = 40;
+let apiUrl;
 
 const fetchData = async () => {
     try {
@@ -7,7 +8,6 @@ const fetchData = async () => {
         const typeName = urlParams.get("type");
         const abilityName = urlParams.get("ability");
 
-        let apiUrl;
         if (typeName) {
             apiUrl = `https://pokeapi.co/api/v2/type/${typeName}?limit=${limit}&offset=${offset}`;
         } else if (abilityName) {
@@ -42,6 +42,7 @@ const fetchData = async () => {
             pokemonContainer.appendChild(card);
         });
 
+        
         offset += limit;
 
     } catch (error) {
@@ -49,5 +50,11 @@ const fetchData = async () => {
     }
 };
 
+const handleLoadMore = () => {
+    fetchData();
+};
+
+document.getElementById('load-more').addEventListener('click', handleLoadMore);
+
+
 document.addEventListener('DOMContentLoaded', fetchData);
-document.getElementById('load-more').addEventListener('click', fetchData);
