@@ -27,7 +27,7 @@ document.addEventListener('DOMContentLoaded', async () => {
             typeElement.classList.add("badge", "bg-primary", "me-1", "mb-1");
             typeElement.style.cursor = "pointer";
             typeElement.onclick = () => {
-                window.location.href = `/natithorn.github.io/Pokedex/detail/type/index.html?type=${type.type.name}`;
+                window.location.href = `type/index.html?type=${type.type.name}`;
             };
             typesContainer.appendChild(typeElement);
         });
@@ -53,7 +53,7 @@ document.addEventListener('DOMContentLoaded', async () => {
             abilityElement.classList.add("badge", "bg-secondary", "me-1", "mb-1");
             abilityElement.style.cursor = "pointer";
             abilityElement.onclick = () => {
-                window.location.href = `/natithorn.github.io/Pokedex/detail/ability/index.html?ability=${abilityData.name}`;
+                window.location.href = `ability/index.html?ability=${abilityData.name}`;
             };
             abilitiesContainer.appendChild(abilityElement);
         }));
