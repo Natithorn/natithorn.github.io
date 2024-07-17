@@ -1,5 +1,5 @@
-const offset = 0;
-const limit = 40;
+let offset = 0;
+const limit = 20;
 let apiUrl;
 
 const fetchData = async () => {
@@ -9,9 +9,9 @@ const fetchData = async () => {
         const abilityName = urlParams.get("ability");
 
         if (typeName) {
-            apiUrl = `https://pokeapi.co/api/v2/type/${typeName}?limit=${limit}&offset=${offset}`;
+            apiUrl = `https://pokeapi.co/api/v2/type/${typeName}`;
         } else if (abilityName) {
-            apiUrl = `https://pokeapi.co/api/v2/ability/${abilityName}?limit=${limit}&offset=${offset}`;
+            apiUrl = `https://pokeapi.co/api/v2/ability/${abilityName}`;
         } else {
             apiUrl = `https://pokeapi.co/api/v2/pokemon?limit=${limit}&offset=${offset}`;
         }
@@ -24,16 +24,17 @@ const fetchData = async () => {
         const pokemons = typeName || abilityName ? data.pokemon : data.results;
         const pokemonContainer = document.getElementById('pokemon-container');
 
-        pokemons.forEach((entry, index) => {
+        pokemons.slice(offset, offset + limit).forEach((entry, index) => {
             const pokemon = entry.pokemon || entry;
+            const pokemonId = pokemon.url.split("/")[6];
             const card = document.createElement('div');
             card.classList.add('col', 'col-3');
         
             card.innerHTML = `
                 <div class="card">
-                    <img class="card-img-top" src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${pokemon.url.split("/")[6]}.png">
+                    <img class="card-img-top" src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${pokemonId}.png">
                     <div class="card-body">
-                        <h5 class="card-title">${pokemon.name}</h5>
+                        <h5 class="card-title text-capitalize">${pokemon.name}</h5>
                         <a href="detail/index.html?name=${pokemon.name}" class="btn btn-details">ข้อมูล</a>
                     </div>
                 </div>
@@ -42,7 +43,6 @@ const fetchData = async () => {
             pokemonContainer.appendChild(card);
         });
 
-        
         offset += limit;
 
     } catch (error) {
@@ -55,6 +55,4 @@ const handleLoadMore = () => {
 };
 
 document.getElementById('load-more').addEventListener('click', handleLoadMore);
-
-
 document.addEventListener('DOMContentLoaded', fetchData);
