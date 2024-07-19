@@ -22,7 +22,7 @@ document.addEventListener('DOMContentLoaded', async () => {
         pokemonContainer.innerHTML = "";
         pokemonDataList.forEach(pokemonData => {
             const card = `
-                <div class="col col-3">
+                <div class="col col-md-4">
                     <div class="card">
                         <img class="card-img-top" src="${pokemonData.sprites.front_default}">
                         <div class="card-body">

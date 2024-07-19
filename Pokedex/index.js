@@ -28,7 +28,7 @@ const fetchData = async () => {
             const pokemon = entry.pokemon || entry;
             const pokemonId = pokemon.url.split("/")[6];
             const card = document.createElement('div');
-            card.classList.add('col', 'col-3');
+            card.classList.add('col', 'col-md-4');
 
             card.innerHTML = `
                 <div class="card">

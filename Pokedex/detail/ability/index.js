@@ -22,12 +22,12 @@ document.addEventListener('DOMContentLoaded', async () => {
         pokemonContainer.innerHTML = "";
         pokemonDataList.forEach(pokemonData => {
             const card = `
-                <div class="col col-3">
+                <div class="col col-md-4">
                     <div class="card">
                         <img class="card-img-top" src="${pokemonData.sprites.front_default}">
                         <div class="card-body">
                             <h5 class="card-title">${pokemonData.name}</h5>
-                            <a href="/natithorn.github.io/Pokedex/detail/index.html?name=${pokemonData.name}" class="btn btn-details">ข้อมูล</a>
+                            <a href="/Pokedex/detail/index.html?name=${pokemonData.name}" class="btn btn-details">ข้อมูล</a>
                         </div>
                     </div>
                 </div>`;
