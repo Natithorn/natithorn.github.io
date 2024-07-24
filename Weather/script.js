@@ -13,10 +13,10 @@ document.getElementById('getWeatherBtn').addEventListener('click', function() {
                 const windSpeed = data.wind.speed;
 
                 document.getElementById('weatherInfo').innerHTML = `
-                    <h2>Weather in ${city}</h2>
-                    <p>Temperature: ${temperature} °C</p>
-                    <p>Humidity: ${humidity} %</p>
-                    <p>Wind Speed: ${windSpeed} m/s</p>
+                <h2>Weather in ${city}</h2>
+                <p><i class="fas fa-thermometer-half"></i> Temperature: ${temperature} °C</p>
+                <p><i class="fas fa-tint"></i> Humidity: ${humidity} %</p>
+                <p><i class="fas fa-wind"></i> Wind Speed: ${windSpeed} m/s</p>
                 `;
             } else {
                 document.getElementById('weatherInfo').innerHTML = `
