@@ -1,0 +1,58 @@
+/* ตั้งค่าพื้นฐาน */
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: #f8f8f8;
+    color: #333;
+    line-height: 1.6;
+  }
+  
+  header {
+    background-color: #5c6bc0;
+    color: #fff;
+    text-align: center;
+    padding: 1rem;
+  }
+  
+  header h1 {
+    margin: 0;
+  }
+  
+  main {
+    padding: 20px;
+  }
+  
+  /* การ์ดเกมแต่ละใบ */
+  #board-game-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+  }
+  
+  .board-game-card {
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 15px;
+    width: 280px;
+    transition: transform 0.3s ease-in-out;
+  }
+  
+  .board-game-card:hover {
+    transform: translateY(-10px);
+  }
+  
+  .game-title {
+    margin-top: 0;
+    color: #eb0b0b;
+    text-align: center;
+  }
+  
+  .game-description {
+    font-size: 0.9em;
+    color: #555;
+    margin-top: 10px;
+    text-align: justify;
+  }
+  
