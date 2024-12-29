@@ -1,6 +1,6 @@
 
 
-const apiKey = "AIzaSyBPbJ3JRm5ioJ9h70Uc79"; 
+const apiKey = "AIzaSyBPbJ"; 
 const apiUrl = "https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent";
 
 async function fetchAIResponse(prompt) {
