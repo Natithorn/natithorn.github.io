@@ -4,20 +4,29 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Calculator Web</title>
+    <title>Basic Calculator</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
 </head>
 
 <body>
-    <div class="d-flex flex-column align-items-center justify-content-center" style="height: 100vh; background-color: rgb(80, 177, 241);">
-        <div>
+    <div class="d-flex flex-column align-items-center justify-content-center"
+        style="height: 100vh; background-color: rgb(80, 177, 241);">
+        <div class="text-center">
             <p style="font-size: 5rem; color: white;">Calculator</p>
-            <form method="get" >
-                <input type="number" id="input1" class="form-control"/><br>
-                <input type="number" id="input2" class="form-control"/><br>
-                <input type="number" id="output" class="form-control" readonly/><br>
-                <button type="button" class="btn btn-primary btn-lg" onclick="plus()">แสดงผลลัพธ์</button>
+            <form method="get">
+                <input type="number" id="input1" class="form-control mb-3" placeholder="Enter first number" />
+                <input type="number" id="input2" class="form-control mb-3" placeholder="Enter second number" />
+                <input type="text" id="output" class="form-control mb-3" readonly placeholder="Result" />
+                <div class="d-grid gap-2 d-md-flex justify-content-md-center">
+                    <button type="button" class="btn btn-primary" onclick="calculate('+')">+</button>
+                    <button type="button" class="btn btn-secondary" onclick="calculate('-')">-</button>
+                    <button type="button" class="btn btn-success" onclick="calculate('*')">*</button>
+                    <button type="button" class="btn btn-danger" onclick="calculate('/')">/</button>
+                    <button type="button" class="btn btn-warning" onclick="calculate('%')">%</button>
+                    <button type="button" class="btn btn-info" onclick="root()">√</button>
+                    <button type="button" class="btn btn-dark" onclick="logarithm()">log</button>
+                </div>
             </form>
         </div>
     </div>
