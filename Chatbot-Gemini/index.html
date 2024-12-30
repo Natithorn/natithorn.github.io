@@ -7,12 +7,20 @@
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <div>
-    <h1>AI Chatbot</h1> 
-    <input type="text" id="user-input" placeholder="Ask a question...">
-    <button id="send-button">Send</button>
+  <div class="container">
+    <header class="header">
+      <h1>Gemini AI Chatbot</h1>
+    </header>
+    <main class="chat-section">
+      <div class="chat-box">
+        <div id="response" class="response-box">Ask me anything!</div>
+        <div class="input-section">
+          <input type="text" id="user-input" placeholder="Type your question..." class="input-field">
+          <button id="send-button" class="send-button">Send</button>
+        </div>
+      </div>
+    </main>
   </div>
-  <div id="response"></div>
   <script src="script.js"></script>
 </body>
 </html>
