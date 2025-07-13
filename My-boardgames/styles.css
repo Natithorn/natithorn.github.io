@@ -1,58 +1,204 @@
 /* ตั้งค่าพื้นฐาน */
-body {
+* {
     margin: 0;
-    font-family: Arial, sans-serif;
-    background-color: #f8f8f8;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    min-height: 100vh;
     color: #333;
     line-height: 1.6;
-  }
-  
-  header {
-    background-color: #5c6bc0;
+}
+
+header {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
     color: #fff;
     text-align: center;
-    padding: 1rem;
-  }
-  
-  header h1 {
-    margin: 0;
-  }
-  
-  main {
+    padding: 3rem 1rem;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    position: relative;
+    overflow: hidden;
+}
+
+header::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grain" width="100" height="100" patternUnits="userSpaceOnUse"><circle cx="50" cy="50" r="1" fill="rgba(255,255,255,0.1)"/></pattern></defs><rect width="100%" height="100%" fill="url(%23grain)"/></svg>');
+    opacity: 0.1;
+}
+
+header h1 {
+    font-size: 2.5rem;
+    font-weight: 700;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+    position: relative;
+    z-index: 1;
+    animation: slideInDown 0.8s ease-out;
+}
+
+@keyframes slideInDown {
+    from {
+        transform: translateY(-30px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+main {
+    padding: 40px 20px;
+    animation: fadeIn 1s ease-out;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* การ์ดเกมแต่ละใบ */
+#board-game-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.board-game-card {
+    background: rgba(255, 255, 255, 0.95);
+    border-radius: 16px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
     padding: 20px;
-  }
-  
-  /* การ์ดเกมแต่ละใบ */
-  #board-game-container {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 20px;
-    justify-content: center;
-  }
-  
-  .board-game-card {
-    background-color: #fff;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    padding: 15px;
-    width: 280px;
-    transition: transform 0.3s ease-in-out;
-  }
-  
-  .board-game-card:hover {
-    transform: translateY(-10px);
-  }
-  
-  .game-title {
-    margin-top: 0;
-    color: #eb0b0b;
+    transition: all 0.3s ease;
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    animation: fadeInUp 0.6s ease-out;
+    animation-fill-mode: both;
+}
+
+.board-game-card:nth-child(1) { animation-delay: 0.1s; }
+.board-game-card:nth-child(2) { animation-delay: 0.2s; }
+.board-game-card:nth-child(3) { animation-delay: 0.3s; }
+.board-game-card:nth-child(4) { animation-delay: 0.4s; }
+.board-game-card:nth-child(5) { animation-delay: 0.5s; }
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.board-game-card:hover {
+    transform: translateY(-10px) scale(1.02);
+    box-shadow: 0 16px 48px rgba(0, 0, 0, 0.15);
+}
+
+.game-image {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 12px;
+    margin-bottom: 15px;
+    transition: transform 0.3s ease;
+}
+
+.board-game-card:hover .game-image {
+    transform: scale(1.05);
+}
+
+.game-title {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #5a67d8;
     text-align: center;
-  }
-  
-  .game-description {
-    font-size: 0.9em;
-    color: #555;
-    margin-top: 10px;
+    margin-bottom: 15px;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+.board-game-card p {
+    margin: 8px 0;
+    font-size: 0.95rem;
+    color: #4a5568;
+    display: flex;
+    align-items: center;
+}
+
+.board-game-card p strong {
+    color: #2d3748;
+    margin-right: 8px;
+    min-width: 120px;
+}
+
+.game-description {
+    font-size: 0.9rem;
+    color: #718096;
+    margin-top: 15px;
     text-align: justify;
-  }
+    line-height: 1.6;
+    padding: 15px;
+    background: rgba(116, 75, 162, 0.05);
+    border-radius: 8px;
+    border-left: 4px solid #764ba2;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    header h1 {
+        font-size: 2rem;
+    }
+    
+    main {
+        padding: 20px 10px;
+    }
+    
+    #board-game-container {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+    
+    .board-game-card {
+        padding: 15px;
+    }
+}
+
+/* Loading animation */
+.board-game-card {
+    position: relative;
+    overflow: hidden;
+}
+
+.board-game-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+    transition: left 0.5s;
+}
+
+.board-game-card:hover::before {
+    left: 100%;
+}
   

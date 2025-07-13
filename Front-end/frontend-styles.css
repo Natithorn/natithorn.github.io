@@ -1,0 +1,457 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(135deg, #ff6b6b 0%, #ffa500 100%);
+    min-height: 100vh;
+    color: #333;
+    animation: fadeIn 1s ease-out;
+    position: relative;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes slideInDown {
+    from {
+        transform: translateY(-30px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+@keyframes rotateIn {
+    from {
+        opacity: 0;
+        transform: rotate(-180deg) scale(0.5);
+    }
+    to {
+        opacity: 1;
+        transform: rotate(0deg) scale(1);
+    }
+}
+
+.container {
+    animation: slideInDown 0.8s ease-out;
+}
+
+h1 {
+    color: #ffffff;
+    font-weight: 800;
+    font-size: 3rem;
+    text-align: center;
+    margin-bottom: 2rem;
+    position: relative;
+    animation: rotateIn 1s ease-out;
+    text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.6),
+                 0 0 20px rgba(255, 107, 107, 0.3);
+    filter: drop-shadow(2px 2px 4px rgba(0, 0, 0, 0.3));
+}
+
+h1::before {
+    content: '🌐';
+    position: absolute;
+    left: -60px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 2.5rem;
+    animation: spin 4s linear infinite;
+}
+
+@keyframes spin {
+    from {
+        transform: translateY(-50%) rotate(0deg);
+    }
+    to {
+        transform: translateY(-50%) rotate(360deg);
+    }
+}
+
+.table-container {
+    background: rgba(255, 255, 255, 0.95);
+    border-radius: 20px;
+    padding: 2rem;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    animation: fadeInUp 0.8s ease-out;
+    animation-delay: 0.3s;
+    animation-fill-mode: both;
+    position: relative;
+}
+
+.table-container::before {
+    content: '';
+    position: absolute;
+    top: -2px;
+    left: -2px;
+    right: -2px;
+    bottom: -2px;
+    background: linear-gradient(45deg, #ff6b6b, #ffa500, #ff6b6b, #ffa500);
+    border-radius: 20px;
+    z-index: -1;
+    background-size: 400% 400%;
+    animation: gradientShift 3s ease infinite;
+}
+
+@keyframes gradientShift {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.table {
+    margin-bottom: 0;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+}
+
+.table thead th {
+    background: linear-gradient(135deg, #ff6b6b 0%, #ffa500 100%);
+    color: white;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    border: none;
+    padding: 1rem;
+    position: relative;
+    overflow: hidden;
+}
+
+.table thead th::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+}
+
+.table thead th::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.1), transparent);
+    transition: left 0.5s;
+}
+
+.table thead th:hover::before {
+    left: 100%;
+}
+
+.table tbody tr {
+    transition: all 0.3s ease;
+    border: none;
+    animation: slideInRight 0.6s ease-out;
+    animation-fill-mode: both;
+}
+
+.table tbody tr:nth-child(1) { animation-delay: 0.1s; }
+.table tbody tr:nth-child(2) { animation-delay: 0.2s; }
+.table tbody tr:nth-child(3) { animation-delay: 0.3s; }
+.table tbody tr:nth-child(4) { animation-delay: 0.4s; }
+.table tbody tr:nth-child(5) { animation-delay: 0.5s; }
+.table tbody tr:nth-child(6) { animation-delay: 0.6s; }
+.table tbody tr:nth-child(7) { animation-delay: 0.7s; }
+.table tbody tr:nth-child(8) { animation-delay: 0.8s; }
+
+@keyframes slideInRight {
+    from {
+        opacity: 0;
+        transform: translateX(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+.table tbody tr:hover {
+    background: linear-gradient(135deg, rgba(255, 107, 107, 0.1), rgba(255, 165, 0, 0.1));
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.table tbody td {
+    padding: 1rem;
+    vertical-align: middle;
+    border: none;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.table tbody tr:nth-child(even) {
+    background-color: rgba(248, 249, 250, 0.5);
+}
+
+.table tbody tr:last-child td {
+    border-bottom: none;
+}
+
+.table tbody td a {
+    color: #ff6b6b;
+    text-decoration: none;
+    font-weight: 600;
+    padding: 0.5rem 1rem;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    position: relative;
+    overflow: hidden;
+}
+
+.table tbody td a:hover {
+    background: linear-gradient(135deg, #ff6b6b, #ffa500);
+    color: white;
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(255, 107, 107, 0.3);
+}
+
+.table tbody td a:before {
+    content: '\f09b';
+    font-family: 'Font Awesome 6 Brands';
+    font-size: 1.2rem;
+}
+
+.table tbody td a.link-web:before {
+    content: '\f0c1';
+    font-family: 'Font Awesome 6 Free';
+    font-weight: 900;
+}
+
+.web-number {
+    background: linear-gradient(135deg, #ff6b6b, #ffa500);
+    color: white;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    margin: 0 auto;
+    position: relative;
+    animation: rotateIn 0.8s ease-out;
+}
+
+.web-number::before {
+    content: '';
+    position: absolute;
+    top: -5px;
+    left: -5px;
+    right: -5px;
+    bottom: -5px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #ff6b6b, #ffa500);
+    opacity: 0.3;
+    z-index: -1;
+    animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+        opacity: 0.3;
+    }
+    50% {
+        transform: scale(1.1);
+        opacity: 0.1;
+    }
+    100% {
+        transform: scale(1);
+        opacity: 0.3;
+    }
+}
+
+.project-title {
+    font-weight: 600;
+    color: #2d3748;
+    font-size: 1.1rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.project-title::before {
+    content: '🌐';
+    font-size: 1.2rem;
+}
+
+.project-description {
+    color: #718096;
+    font-style: italic;
+    position: relative;
+    padding-left: 1rem;
+}
+
+.project-description::before {
+    content: '🚀';
+    position: absolute;
+    left: 0;
+    top: 0;
+}
+
+.btn-primary {
+    background: linear-gradient(135deg, #ff6b6b 0%, #ffa500 100%);
+    border: none;
+    padding: 1rem 2rem;
+    border-radius: 50px;
+    font-weight: 600;
+    font-size: 1.1rem;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+    animation: fadeInUp 0.8s ease-out;
+    animation-delay: 0.5s;
+    animation-fill-mode: both;
+}
+
+.btn-primary:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 25px rgba(255, 107, 107, 0.4);
+}
+
+.btn-primary:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+    transition: left 0.5s;
+}
+
+.btn-primary:hover:before {
+    left: 100%;
+}
+
+.back-button-container {
+    text-align: center;
+    margin-top: 2rem;
+}
+
+/* Web-specific decorative elements */
+.web-pattern {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="webGrid" width="25" height="25" patternUnits="userSpaceOnUse"><rect width="25" height="25" fill="none"/><path d="M 25 0 L 0 0 0 25" fill="none" stroke="rgba(255,255,255,0.05)" stroke-width="1"/><path d="M 0 12.5 L 25 12.5 M 12.5 0 L 12.5 25" fill="none" stroke="rgba(255,255,255,0.03)" stroke-width="1"/></pattern></defs><rect width="100%" height="100%" fill="url(%23webGrid)"/></svg>');
+    opacity: 0.1;
+    pointer-events: none;
+    z-index: -1;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    h1 {
+        font-size: 2rem;
+    }
+    
+    h1::before {
+        left: -40px;
+        font-size: 1.8rem;
+    }
+    
+    .table-container {
+        padding: 1rem;
+        border-radius: 12px;
+    }
+    
+    .table {
+        font-size: 0.9rem;
+    }
+    
+    .table thead th,
+    .table tbody td {
+        padding: 0.75rem 0.5rem;
+    }
+}
+
+/* Code-inspired floating elements */
+.floating-code-icon {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    width: 60px;
+    height: 60px;
+    background: linear-gradient(135deg, #ff6b6b, #ffa500);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 1.5rem;
+    box-shadow: 0 8px 25px rgba(255, 107, 107, 0.3);
+    animation: float 3s ease-in-out infinite;
+    z-index: 1000;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.floating-code-icon:hover {
+    transform: scale(1.1);
+    box-shadow: 0 12px 35px rgba(255, 107, 107, 0.4);
+}
+
+@keyframes float {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-10px);
+    }
+}
+
+/* Special styling for Link column */
+.table tbody td:last-child a {
+    background: linear-gradient(135deg, rgba(255, 107, 107, 0.1), rgba(255, 165, 0, 0.1));
+    border: 1px solid rgba(255, 107, 107, 0.2);
+    color: #ff6b6b;
+}
+
+.table tbody td:last-child a:hover {
+    background: linear-gradient(135deg, #ff6b6b, #ffa500);
+    color: white;
+    border-color: transparent;
+} 
