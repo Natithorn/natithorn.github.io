@@ -6,7 +6,7 @@
 
 body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    background: linear-gradient(135deg, #a8e6cf 0%, #ffd3a5 50%, #fd9853 100%);
     min-height: 100vh;
     color: #333;
     animation: fadeIn 1s ease-out;
@@ -72,7 +72,7 @@ h1 {
     text-align: center;
     margin-bottom: 2rem;
     text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.6),
-                 0 0 20px rgba(102, 126, 234, 0.3);
+                 0 0 20px rgba(168, 230, 207, 0.3);
     filter: drop-shadow(2px 2px 4px rgba(0, 0, 0, 0.3));
     animation: bounceIn 1s ease-out;
 }
@@ -108,7 +108,7 @@ h1 {
 }
 
 .table thead th {
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    background: linear-gradient(135deg, #a8e6cf 0%, #fd9853 100%);
     color: white;
     font-weight: 600;
     text-transform: uppercase;
@@ -134,9 +134,9 @@ h1 {
 }
 
 .table tbody tr:hover {
-    background: linear-gradient(135deg, rgba(102, 126, 234, 0.1), rgba(118, 75, 162, 0.1));
+    background: linear-gradient(135deg, rgba(168, 230, 207, 0.15), rgba(253, 152, 83, 0.15));
     transform: translateY(-2px);
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 5px 15px rgba(168, 230, 207, 0.3);
 }
 
 .table tbody td {
@@ -155,7 +155,7 @@ h1 {
 }
 
 .table tbody td a {
-    color: #667eea;
+    color: #fd9853;
     text-decoration: none;
     font-weight: 600;
     padding: 0.5rem 1rem;
@@ -167,10 +167,10 @@ h1 {
 }
 
 .table tbody td a:hover {
-    background: linear-gradient(135deg, #667eea, #764ba2);
+    background: linear-gradient(135deg, #a8e6cf, #fd9853);
     color: white;
     transform: translateY(-2px);
-    box-shadow: 0 5px 15px rgba(102, 126, 234, 0.3);
+    box-shadow: 0 5px 15px rgba(168, 230, 207, 0.5);
 }
 
 .table tbody td a:before {
@@ -181,7 +181,7 @@ h1 {
 }
 
 .btn-primary {
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    background: linear-gradient(135deg, #a8e6cf 0%, #fd9853 100%);
     border: none;
     padding: 1rem 2rem;
     border-radius: 50px;
@@ -197,7 +197,7 @@ h1 {
 
 .btn-primary:hover {
     transform: translateY(-3px);
-    box-shadow: 0 10px 25px rgba(102, 126, 234, 0.4);
+    box-shadow: 0 10px 25px rgba(168, 230, 207, 0.6);
 }
 
 .btn-primary:before {
@@ -216,7 +216,7 @@ h1 {
 }
 
 .project-number {
-    background: linear-gradient(135deg, #667eea, #764ba2);
+    background: linear-gradient(135deg, #a8e6cf, #fd9853);
     color: white;
     width: 40px;
     height: 40px;
@@ -226,6 +226,7 @@ h1 {
     justify-content: center;
     font-weight: bold;
     margin: 0 auto;
+    box-shadow: 0 4px 15px rgba(168, 230, 207, 0.4);
 }
 
 .project-title {
@@ -269,6 +270,9 @@ h1 {
 .table tbody tr:nth-child(1) { animation-delay: 0.1s; }
 .table tbody tr:nth-child(2) { animation-delay: 0.2s; }
 .table tbody tr:nth-child(3) { animation-delay: 0.3s; }
+.table tbody tr:nth-child(4) { animation-delay: 0.4s; }
+.table tbody tr:nth-child(5) { animation-delay: 0.5s; }
+.table tbody tr:nth-child(6) { animation-delay: 0.6s; }
 
 .back-button-container {
     text-align: center;
