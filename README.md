@@ -6,13 +6,11 @@ A curated collection of projects from my university studies and personal develop
 
 ### 🎮 Interactive Applications
 - **🎲 Board Games Collection** - Digital showcase with visual presentation
-- **🎂 HBD Letter** - Interactive birthday letter with animations
 - **📱 ToDoApp** - Task management application
 - **🧮 Calculator** - Modern UI calculator
 
 ### 🌐 Web Development
 - **🤖 Chatbot with Gemini AI** - AI-powered conversational interface
-- **📱 Mobile Application** - Cross-platform apps built with **Flutter**
 - **🌤️ Weather App** - Real-time weather data visualization
 - **🕸️ Web Portfolio** - Responsive frontend designs
 
@@ -20,6 +18,7 @@ A curated collection of projects from my university studies and personal develop
 - **🎯 OOP Projects** - Object-oriented programming applications
 - **🧪 Software Testing** - Quality assurance methodologies
 - **🎨 Frontend Collection** - Modern responsive interfaces
+- **📱 Mobile Application** - Cross-platform apps built with **Flutter**
 
 ### 🔍 Specialized Apps
 - **📱 Pokédex** - Comprehensive Pokémon database with type effectiveness
